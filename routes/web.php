@@ -12,7 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 Route::get('/', function () {
-    return view('welcome');
+
+    $nome ='Giovani';
+    $filme = 'fury';
+    $arr = [10,20,30,40,50];
+
+
+    return view('welcome',
+    [
+        'nome' => $nome, 
+        'filme' => $filme,
+        'arr' => $arr
+    ]);
+});
+
+Route::get('/buscaprof', function () {
+    return view('Professores');
 });
