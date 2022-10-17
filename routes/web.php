@@ -12,30 +12,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\professorcontroller;
  
-Route::get('/', function () {
-
-    $nome ='Giovani';
-    $filme = 'fury';
-    $arr = [10,20,30,40,50];
-
-
-    return view('welcome',
-    [
-        'nome' => $nome, 
-        'filme' => $filme,
-        'arr' => $arr
-    ]);
-});
+Route::get('/', [professorcontroller::class, 'index']);
+Route::get('/buscaprof/create', [professorcontroller::class, 'create']);
 
 Route::get('/buscaprof', function () {
     return view('Professores');
 });
 
 Route::get('/alunos', function () {
-    return view('Alunos');
+
+    $busca = request('search');    
+ 
+    return view('alunos',['busca' => $busca]);
 });
 
 Route::get('/novoalunos', function () {
     return view('NovoAlunos');
 });
+
