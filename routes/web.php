@@ -31,3 +31,11 @@ Route::get('/', function () {
 Route::get('/buscaprof', function () {
     return view('Professores');
 });
+
+Route::get('/alunos', function () {
+    return view('Alunos');
+});
+
+Route::get('/novoalunos', function () {
+    return view('NovoAlunos');
+});
